@@ -1,6 +1,6 @@
 {
   "name": "mc-animejs-core",
-  "version": "3.1.0.1",
+  "version": "3.1.1",
   "repository": "https://github.com/andreas-trad/anime",
   "description": "JavaScript animation engine",
   "umd:main": "lib/anime.min.js",
