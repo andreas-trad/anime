@@ -708,9 +708,8 @@ function getParentSvg(pathEl, svgData) {
 function getPath(path, percent) {
   const pathEl = is.str(path) ? selectString(path)[0] : path;
   const p = percent || 100;
-  return function(property) {
+  return function() {
     return {
-      property,
       el: pathEl,
       svg: getParentSvg(pathEl),
       totalLength: getTotalLength(pathEl) * (p / 100)
@@ -729,13 +728,10 @@ function getPathProgress(path, progress, isPathTargetInsideSVG) {
   const p1 = point(+1);
   const scaleX = isPathTargetInsideSVG ? 1 : svg.w / svg.vW;
   const scaleY = isPathTargetInsideSVG ? 1 : svg.h / svg.vH;
-  switch (path.property) {
-    case 'x':
-      return (p.x - svg.x) * scaleX;
-    case 'y':
-      return (p.y - svg.y) * scaleY;
-    case 'angle':
-      return Math.atan2(p1.y - p0.y, p1.x - p0.x) * 180 / Math.PI;
+  return {
+    x: (p.x - svg.x) * scaleX,
+    y: (p.y - svg.y) * scaleY,
+    angle: Math.atan2(p1.y - p0.y, p1.x - p0.x) * 180 / Math.PI
   }
 }
 
