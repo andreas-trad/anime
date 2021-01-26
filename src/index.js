@@ -732,8 +732,8 @@ function getPathProgress(path, progress, isPathTargetInsideSVG) {
   var p = point();
   var p0 = point(-1);
   var p1 = point(+1);
-  var scaleX = isPathTargetInsideSVG ? 1 : svg.w / svg.vW;
-  var scaleY = isPathTargetInsideSVG ? 1 : svg.h / svg.vH;
+  var scaleX = 1; //isPathTargetInsideSVG ? 1 : svg.w / svg.vW;
+  var scaleY = 1; //isPathTargetInsideSVG ? 1 : svg.h / svg.vH;
   return {
     x: (p.x - svg.x) * scaleX,
     y: (p.y - svg.y) * scaleY,
